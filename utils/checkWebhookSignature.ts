@@ -2,7 +2,7 @@ import type { NextApiRequest } from "next";
 import crypto from "crypto";
 
 export const checkWebhookSignature = async (req: NextApiRequest) => {
-  const INSTALL_SECRET = "1713fe8357e20007ae921d17cc6676b8e976f492";
+  const INSTALL_SECRET = process.env.INSTALL_SECRET ?? "";
   const requestSig = req.headers["x-appstore-signature"];
 
   if (typeof requestSig !== "string") {
