@@ -14,6 +14,6 @@ export default async function handler(
     return;
   }
   res.status(200).json({
-    redirect_url: "https://a0647f93eeec07.lhr.life",
+    redirect_url: "https://a0647f93eeec07.lhr.life/installed",
   });
 }
