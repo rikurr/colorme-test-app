@@ -1,6 +1,9 @@
-// import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import type { NextRequest, NextResponse } from "next/server";
 
-export function middleware(request: NextRequest) {
-  console.log("hello");
+export const config = {
+  matcher: ["/api/install", "/api/uninstall"],
+};
+
+export async function middleware(req: NextRequest, res: NextResponse) {
+  console.log("hello, middleware");
 }
