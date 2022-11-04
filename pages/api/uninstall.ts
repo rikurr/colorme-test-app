@@ -7,7 +7,7 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   const isValid = await checkWebhookSignature(req);
-  console.log("検証けっか", isValid);
+  console.log("検証結果", isValid);
 
   if (!isValid) {
     res.status(404).end();

@@ -7,13 +7,13 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   const isValid = await checkWebhookSignature(req);
-  console.log("検証けっか", isValid);
+  console.log("検証結果", isValid);
 
   if (!isValid) {
     res.status(404).end();
     return;
   }
   res.status(200).json({
-    redirect_url: "https://a0647f93eeec07.lhr.life/installed",
+    redirect_url: "https://grumpy-cobras-jog-133-206-112-32.loca.lt/installed",
   });
 }
