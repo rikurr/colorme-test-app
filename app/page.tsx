@@ -1,6 +1,10 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { AuthButton } from "./components/AuthButton/AuthButton";
 
 export default function Home() {
-  return <h1>Hello, Next.js!</h1>;
+  return (
+    <main>
+      <h1>トップページ</h1>
+      <AuthButton />
+    </main>
+  );
 }
