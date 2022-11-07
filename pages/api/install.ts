@@ -7,6 +7,7 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   const isValid = await checkWebhookSignature(req);
+  const redirectUrl = process.env.URL ?? "";
   console.log("検証結果", isValid);
 
   if (!isValid) {
@@ -14,6 +15,6 @@ export default async function handler(
     return;
   }
   res.status(200).json({
-    redirect_url: "https://grumpy-cobras-jog-133-206-112-32.loca.lt/installed",
+    redirect_url: `${redirectUrl}/installed`,
   });
 }
