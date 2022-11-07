@@ -10,6 +10,8 @@ export default async function handler(
   const redirectUrl = process.env.URL ?? "";
   console.log("検証結果", isValid);
 
+  console.log("インストール", req.body);
+
   if (!isValid) {
     res.status(404).end();
     return;

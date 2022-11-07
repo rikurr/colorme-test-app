@@ -10,6 +10,13 @@ export default async function handler(
   console.log("認証コード, ", code);
   console.log("認証エラー", error);
 
+  if (!code && error === "access_denied") {
+    console.log("認証がキャンセルされました。");
+    res.status(403).end();
+  }
+
+  
+
   const clientId = process.env.CLIENT_ID ?? "";
   const clientSecret = process.env.CLIENT_SECRET ?? "";
   const redirectUrl = process.env.URL ?? "";
