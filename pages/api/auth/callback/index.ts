@@ -12,10 +12,10 @@ export default async function handler(
 
   if (error === "access_denied") {
     console.log("認証がキャンセルされました");
-    return res.status(403).send("access_denied");
+    return res.redirect("/auth/cancel");
   } else if (!code) {
     console.log("認証コードがありません");
-    return res.status(403).send("not_code");
+    return res.redirect("/auth/cancel");
   }
 
   const clientId = process.env.CLIENT_ID ?? "";
@@ -25,7 +25,6 @@ export default async function handler(
     : "";
   const url = `https://api.shop-pro.jp/oauth/token?client_id=${clientId}&client_secret=${clientSecret}&code=${code}&grant_type=authorization_code&redirect_uri=${redirectUrl}`;
 
-  console.log("アクセストークンのリクエスト");
   try {
     const accessTokenResponse = await fetch(url, { method: "POST" });
     const accessTokenJson = await accessTokenResponse.json();

@@ -1,6 +1,7 @@
 import { use } from "react";
 import { Button } from "./client/Button";
 
+// 認証URLを取得
 async function getAuthUrl() {
   const clientId = process.env.CLIENT_ID ?? "";
   const scope = process.env.SCOPE ?? "";

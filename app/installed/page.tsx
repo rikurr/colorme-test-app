@@ -6,7 +6,9 @@ export default function Installed() {
     <main>
       <h1>インストールに成功しました！</h1>
       <AuthButton />
-      <Link href="/">ページトップ</Link>
+      <div>
+        <Link href="/">ページトップへ</Link>
+      </div>
     </main>
   );
 }

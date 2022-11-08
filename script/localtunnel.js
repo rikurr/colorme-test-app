@@ -16,18 +16,20 @@ const updateEnvUrl = async (newUrl) => {
     };
   });
 
-  const updateEnvs = envs.map((env) => {
-    if (env.key === "URL") {
-      return {
-        key: env.key,
-        value: newUrl,
-      };
-    }
+  const updateEnvs = envs
+    .filter((env) => env.value)
+    .map((env) => {
+      if (env.key === "URL") {
+        return {
+          key: env.key,
+          value: newUrl,
+        };
+      }
 
-    return {
-      ...env,
-    };
-  });
+      return {
+        ...env,
+      };
+    });
 
   const envArrayToString = updateEnvs
     .map((env) => `${env.key}=${env.value}`)
