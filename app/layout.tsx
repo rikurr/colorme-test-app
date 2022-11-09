@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./globals.css";
 
 export default function RootLayout({
@@ -15,6 +16,17 @@ export default function RootLayout({
       <body>
         <header>
           <h1>アプリ名が入ります</h1>
+          <ul>
+            <li>
+              <Link href="/">トップページ</Link>
+            </li>
+            <li>
+              <Link href="/guide">設定ガイド</Link>
+            </li>
+            <li>
+              <Link href="/terms">利用規約</Link>
+            </li>
+          </ul>
         </header>
         {children}
       </body>
