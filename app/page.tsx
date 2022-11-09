@@ -1,9 +1,10 @@
 import { AuthButton } from "./components/AuthButton/AuthButton";
+import { Profile } from "./components/Profile/Profile";
 
 export default function Home() {
   return (
     <main>
-      <h1>トップページ</h1>
+      <Profile />
       <AuthButton />
     </main>
   );

@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
+import { setCookie } from "cookies-next";
 
 export default async function handler(
   req: NextApiRequest,
@@ -35,7 +36,9 @@ export default async function handler(
       return res.status(403).send(accessTokenJson.error_description);
     } else {
       console.log("成功");
-      // res.status(200).send("Success");
+      setCookie("access_token", accessTokenJson.access_token, { req, res });
+      setCookie("scope", accessTokenJson.scope, { req, res });
+
       res.redirect(process.env.URL ?? "");
     }
   } catch (error) {
